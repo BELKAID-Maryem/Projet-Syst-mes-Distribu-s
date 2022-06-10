@@ -26,6 +26,9 @@
 
  ![image](https://user-images.githubusercontent.com/102295113/173137506-db87aa30-3658-4eb3-9bea-5ccba5743f43.png)
  
+ ![image](https://user-images.githubusercontent.com/102295113/173146208-299cf651-b263-4b1c-8b8e-cae71218d3e3.png)
+
+ 
 - Parmi les nombreux avantages d’une architecture microservices, on peut citer :
 
    - Les microservices sont indépendants les uns des autres : chaque composant possède son propre cycle de vie.
@@ -50,9 +53,12 @@
 Danc ce projet on utilise que l'approche microservices pour creer notre application .
  
   ## Partie1: Micro service
- 
-Danc ce projet on a creer 4 micro service:
-
+  
+- Dans une architecture basée sur le micro service on a besoin de créer les micro service métier (Customer-Service,Inventory-Service,Billing-Service , Eureka Discovery Service,Spring Cloud Gateway ) en utilisant différentes technologies. Et pour fonctionner tous les micro services dans une seule application on a besoin d'utiliser un framework,et parmi c'est framework on a un spring cloud qui permet de gérer la communication entre les différents micro services.
+- les micro service technique qui sont fait par spring cloud :
+     - le service de regisrement 
+     - le service  proxy(gatewey)
+     - le service  configuration
 ## 1-Customer Service:
 
   
