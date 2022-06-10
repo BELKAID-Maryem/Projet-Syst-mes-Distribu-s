@@ -1,7 +1,7 @@
 # Projet Systèmes Distribués
   ## C'est qoui un Systèmes Distribués:
   
- - Un système distribué est une structure de réseau composée d'ordinateurs autonomes connectés à l'aide d'un middleware de distribution. Les systèmes distribués            facilitent le partage de différentes ressources et capacités, pour fournir aux utilisateurs un réseau cohérent unique et intégré.
+ - Un système distribué est une structure de réseau composée d'ordinateurs autonomes connectés à l'aide d'un middleware de distribution. Les systèmes distribués facilitent le partage de différentes ressources et capacités, pour fournir aux utilisateurs un réseau cohérent unique et intégré.
  
  - Dans une application orienter objet classique tout les objet de l'applicqtion se trouve dans la meme machine mais dans les application oriente objet distribue un    objet que se trouve dans une machine peut faire appel a une methode d'un autre objet qui se trouve dans une autre machine . Et pour creer des application distribue 
  multilangage et multiplatforme en utilise CORBA(avec le middleware CORBA en peut creer un objet java qui fait appel a une methode d aun objet c++).
@@ -22,7 +22,7 @@
        
   ## 2-Approch  microservices :
     
-   - Aujourd’hui, la majorité des géants du numérique (Google, Amazon, Facebook, Netflix, Uber, Paypal,…) ont adopté une architecture de type microservices pour       leurs   applications. Ce type d’architecture permet de répondre à ces problématiques avec une approche basée sur le principe « Divide and Rule ». L’architecture       microservices consiste à découper une application en petits composants qui vont interagir entre eux via des protocoles légers (souvent via REST API ou par             messages asynchrones).
+   - Aujourd’hui, la majorité des géants du numérique (Google, Amazon, Facebook,        Netflix, Uber, Paypal,…) ont adopté une architecture de type microservices      pour leurs   applications. Ce type d’architecture permet de répondre à ces problématiques avec une approche basée sur le principe « Divide and Rule ». L’architecture microservices consiste à découper une application en petits composants qui vont interagir entre eux via des protocoles légers (souvent via REST API ou par  messages asynchrones).
 
  ![image](https://user-images.githubusercontent.com/102295113/173137506-db87aa30-3658-4eb3-9bea-5ccba5743f43.png)
  
@@ -54,13 +54,37 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
  
   ## Partie1: Micro service
   
-- Dans une architecture basée sur le micro service on a besoin de créer les micro service métier (Customer-Service,Inventory-Service,Billing-Service , Eureka Discovery Service,Spring Cloud Gateway ) en utilisant différentes technologies. Et pour fonctionner tous les micro services dans une seule application on a besoin d'utiliser un framework,et parmi c'est framework on a un spring cloud qui permet de gérer la communication entre les différents micro services.
+- Dans une architecture basée sur le micro service on a besoin de créer les micro service métier (Customer-Service,Inventory-Service,Billing-Service , Eureka Discovery Service,Spring Cloud Gateway ) en utilisant différentes technologies. Et pour fonctionner tous les micro services dans une seule application on a besoin d'utiliser un framework,et parmi c'est framework on a un spring cloud qui permet de faire l'orchestration de services.
 - les micro service technique qui sont fait par spring cloud :
      - le service de regisrement 
      - le service  proxy(gatewey)
      - le service  configuration
+ - Tout les req http client passe par gateway et une fois ce service connu le nom de micro service il contact le service d'enregistrement pour récupérer add ip et le port où se trouve le micro service concerné par la req et s il ya plusieur instante de même micro il utilise le principe de équilibrage de charge pour choisir l'instance le moins chargé et après acheminé la req vers le bon micro service qui faire le traitement et retourne  le résultat .
+ - Et pour mettre une place un service gateway dans un architecture micro service      Spring cloud il offre de solution :
+       - Zuul : est un proxy fourni par Netflix qui basée sur le model  Multi                Threads avec des entre sortie Bloquantes.
+       - Spring Cloud Gateway :  est un proxy basée sur le model Single Threads              avec des entre sortie  non bloquantes.
+- Pour configurer spring cloud gateway en utilise des Route et pour chaque route     on a :
+        -  URI de destination.
+        -  Predicate: un ensemble  de condition qui doit être satisfaite dans la              requête pour dire que   cette req peut envoyer vers ce micro                        service(host,path,method[post,get..]...) 
+        -  Filters : un ou plusieurs filters qui peuvent intervenir pour apporter 
+           des traitement et des modifications des requetes et des reponses HTTP.
+           
 ## 1-Customer Service:
+- Il y a deux  méthode pour créer  ce  micro service   :
+     -  spring initializer:
+     
+     ![image](https://user-images.githubusercontent.com/102295113/173160486-13a36605-391c-4607-8a60-df4c1e5518f1.png)
 
+     -  start.spring.IO et apres ouvrir dans votre IDE :
+     
+     ![image](https://user-images.githubusercontent.com/102295113/173160749-96c4f80f-e383-4f13-8b41-67b95c87c16e.png)
+
+ - Puis on ajoute les dependances suivants :
+ 
+ ![image](https://user-images.githubusercontent.com/102295113/173161257-e3ed9c76-2122-433f-af09-ffd36e6d03d2.png)
+
+ 
+ 
   
 
 
