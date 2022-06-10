@@ -82,9 +82,17 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
  - Puis on ajoute les dependances suivants :
  
  ![image](https://user-images.githubusercontent.com/102295113/173161257-e3ed9c76-2122-433f-af09-ffd36e6d03d2.png)
+ ![image](https://user-images.githubusercontent.com/102295113/173161424-4cf885dd-de05-4f70-9341-8c320d52dd88.png)
+
+- On commence par créer une classe customer qui va mettre dans le package entities   se classe définie par un id ,nom,et email.et pour que ca soit une entité JPA en     ajoute la notation @Entity 
+- Puis creer interface JPA repository basée sur spring data qui appeler               CustomerRepository
+- Et finalement en insère quelque données dans la base de données au démarrage pour   tester .
+- Et pour tester ce micro service on a besoin de spécifier le port et le nom de       micro service et le nom de base de données  et pour le moment on va désactiver le   discovery c.a.d ce micro service ne peut pas enregistrer dans le service           d’enregistrement au démarrage .
 
  
  
+
+
   
 
 
