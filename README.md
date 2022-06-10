@@ -19,12 +19,14 @@
        
        ![image](https://user-images.githubusercontent.com/102295113/173138547-5acdb746-e403-421a-b4f8-f7e487b39beb.png)
        
-    ## 2-Approch  microservices :
+       
+  ## 2-Approch  microservices :
+    
    - Aujourd’hui, la majorité des géants du numérique (Google, Amazon, Facebook, Netflix, Uber, Paypal,…) ont adopté une architecture de type microservices pour       leurs   applications. Ce type d’architecture permet de répondre à ces problématiques avec une approche basée sur le principe « Divide and Rule ». L’architecture       microservices consiste à découper une application en petits composants qui vont interagir entre eux via des protocoles légers (souvent via REST API ou par             messages asynchrones).
 
  ![image](https://user-images.githubusercontent.com/102295113/173137506-db87aa30-3658-4eb3-9bea-5ccba5743f43.png)
  
- Parmi les nombreux avantages d’une architecture microservices, on peut citer :
+- Parmi les nombreux avantages d’une architecture microservices, on peut citer :
 
    - Les microservices sont indépendants les uns des autres : chaque composant possède son propre cycle de vie.
    - Développement en parallèle de microservices.
@@ -35,7 +37,9 @@
    - Propice à l’innovation technologique dans le sens où on peut faire évoluer seulement un microservice dans un premier temps pour tester un langage ou un framework      par exemple.
    - La notion d’évolution progressive : différentes versions d’un microservice peuvent cohabiter.
    - Application scalable : on déploie davantage d’instances pour les microservices plus utilisés.
-   - S'apprete bien a au processus du GL:TDD (test driver developpement) test first c.a.d developper d'abord les tests uniter avant de developper la fonctionaliter      
+   - S'apprete bien a au processus du GL:TDD (test driver developpement) test first c.a.d developper d'abord les tests uniter avant de developper la fonctionaliter.
+   
+   
 - Une architecture aussi complexe entraîne de nouvelles problématiques telles que :
     - Latence due aux communication réseaux.
     - Complexité de l’application déportée dans l’interaction entre les différents microservices.
@@ -49,7 +53,8 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
  
 Danc ce projet on a creer 4 micro service:
 
-## Customer Service:
+## 1-Customer Service:
+
   
 
 
