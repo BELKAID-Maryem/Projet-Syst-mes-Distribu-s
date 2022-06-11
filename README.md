@@ -159,7 +159,7 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 
 ![image](https://user-images.githubusercontent.com/102295113/173181684-bb372d74-e254-40c1-a359-ea25b382b746.png)
 
-
+## 5-Eureka service:
 - un projet eureka discovery et ajouter le dépendance eureka server et pour activer on ajoute la notation @EnableEurekaServer  et dans le fichier de configuration on ajoute le port et deux propriété (false pour que ce service ne pas enregistrer dans eureka service lorsque démarrer  .
 - Eureka service  fournit par Netflix qui sont rôle est chaque micro service qui démarre il va enregistrer  dans le service d'enregistrement dans un table qui contient le nom de micro add IP et la port
 -Et pour consulter ce server :
@@ -174,7 +174,7 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 ![image](https://user-images.githubusercontent.com/102295113/173172218-077ea351-cfef-4b18-96e4-477b1e9f321c.png)
 
 
-## 5- Billing-service:
+## 6- Billing-service:
 
 - ce service permet de gerer les factures , ces service va se comminique avec le service et le inventery service pour avoir les information des produits et des clients.
 - notre micro service gérer deux table:
@@ -182,6 +182,9 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
      - Table productItem c’est la liste de produit de la facture.
 - Puis on a créer Deux classe : Customer et Product qui contient que les attribut d un client et d’un produit mais c' est pas une entité jpa c.a.d n' est pas géré dans la base de données( et pour ca en utilise la notation@Transient)
 - Finalement on a créé deux interface BillRepository et ProductItem utilisées pour accéder à  donner dans ce propre bdd en utilisant la notation @FeignClient . alors  open Feign il va communiquer automatiquement  avec le service d'enregistrement et  il va récupérer add ip et le porte des micro service et après envoyer une requête ver le bon  service.
+
+![image](https://user-images.githubusercontent.com/102295113/173188837-ff746f2c-b9b4-4cf0-b78d-c741a66dd360.png)
+
 
 ![image](https://user-images.githubusercontent.com/102295113/173184721-98336b08-d980-4581-bbb1-23ae48fa44f9.png)
 
