@@ -150,15 +150,57 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 
 - un projet eureka discovery et ajouter le dépendance eureka server et pour activer on ajoute la notation @EnableEurekaServer  et dans le fichier de configuration on ajoute le port et deux propriété (false pour que ce service ne pas enregistrer dans eureka service lorsque démarrer  .
 - Eureka service  fournit par Netflix qui sont rôle est chaque micro service qui démarre il va enregistrer  dans le service d'enregistrement dans un table qui contient le nom de micro add IP et la port
-- et pour consulter ce server :
+-Et pour consulter ce server :
+
+![image](https://user-images.githubusercontent.com/102295113/173172781-0d9f331b-28af-4452-9a87-8bb72f468083.png)
 
 
-- Pour voir le micro service qui demarrer en euraka server en mette true au lieu de false de le fichier de configuration de customer et invotory et gateway server 
+-Pour voir le micro service qui demarrer en euraka server en mette spring.cloud.discovery.enabled true au lieu de false de le fichier de configuration de customer et invotory et gateway server 
+
 
 ![image](https://user-images.githubusercontent.com/102295113/173172218-077ea351-cfef-4b18-96e4-477b1e9f321c.png)
 
 
+# 5- Billing-service:
 
+- ce service permet de gerer les factures , ces service va se comminique avec le service et le inventery service pour avoir les information des produits et des clients.
+- notre micro service gérer deux table:
+     - Table facture .
+     - Table productItem c’est la liste de produit de la facture.
+- Puis on a créer Deux classe : Customer et Product qui contient que les attribut d un client et d’un produit mais c' est pas une entité jpa c.a.d n' est pas géré dans la base de données( et pour ca en utilise la notation@Transient)
+- Finalement on a créé deux interface BillRepository et ProductItem utilisées pour accéder à  donner dans ce propre bdd en utilisant la notation @FeignClient . alors  open Feign il va communiquer automatiquement  avec le service d'enregistrement et  il va récupérer add ip et le porte des micro service et après envoyer une requête ver le bon  service.
+
+
+# parie de kafka:
+ 
+- Enfin on a créé un service avec kafka qui offre des brokers (un cluster des brokers) qui sont utilisés pour échanger des msg entre des applications distribuées.et qui permet de stocker les flux d'enregistrement de manière durable et tolérante aux pannes (si le sys de 
+   Le stockage de kafka n' est pas suffisant il peut utiliser des connecteurs qui lui permet d'utiliser un autre système de stockage comme mongoDB ).
+- Pour demarer kafka il faut tout d'abord demarer Zookeeper qui permet de 
+      - Faire la coordination entre les différente brokes du cluster 
+      - Créer un mémoire partager.
+      - faire la coordination entre les brokers.
+      - informer les consomateur(les autre instance) à un moment donné qui a un nouveau brokers qu'il va ajouter .
+      - retourner des info sur les consommateur (quel enregistrement qu'il va consumer ..).
+
+![image](https://user-images.githubusercontent.com/102295113/173173784-90677627-96db-44e9-a7ed-6db27166a9f1.png)
+
+
+-une fois que zookeeper demarer en peut par suite demarer le server kafka en utilisant kafka-server-start :
+
+![image](https://user-images.githubusercontent.com/102295113/173173795-61f5751b-a43e-40de-8a81-042b9e4cc6db.png)
+
+-Et pour faire des teste on a besion de demarer :
+
+ ![image](https://user-images.githubusercontent.com/102295113/173174023-38443b3b-1c81-4c30-a2bd-0ede55bf3a74.png)
+
+
+- Puis on a creer un producer en utilisant la fonction Supplierbqui permet de publier dans un topic FACTURATION pour lire la factures par un consumer sur un cmd :
+
+![image](https://user-images.githubusercontent.com/102295113/173174060-542499cb-bbf8-422e-aac5-3ab1766a731d.png)
+
+
+
+              
 
 
 
