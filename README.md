@@ -140,7 +140,7 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 
 - ce travaile est utiliser seulement si on utilisez des service dans  add est fix
 
-# Configuration dynamique
+## Configuration dynamique
 
 - Dans ce configuration on a creer un methode Bean qui s'appel DiscovryClientRouteDefinitionLocator qui reçoit  deux parametre de type ReactiveDiscoveryClient et DiscoveryLocatorProperties 
 -A chaque fois le gateway reçoit une requête regarde dans l' url de la requête et trouve le nom de micro service et envoie la requête vers le bon micro service . .
@@ -152,6 +152,7 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 - Eureka service  fournit par Netflix qui sont rôle est chaque micro service qui démarre il va enregistrer  dans le service d'enregistrement dans un table qui contient le nom de micro add IP et la port
 -Et pour consulter ce server :
 
+
 ![image](https://user-images.githubusercontent.com/102295113/173172781-0d9f331b-28af-4452-9a87-8bb72f468083.png)
 
 
@@ -161,7 +162,7 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 ![image](https://user-images.githubusercontent.com/102295113/173172218-077ea351-cfef-4b18-96e4-477b1e9f321c.png)
 
 
-# 5- Billing-service:
+## 5- Billing-service:
 
 - ce service permet de gerer les factures , ces service va se comminique avec le service et le inventery service pour avoir les information des produits et des clients.
 - notre micro service gérer deux table:
@@ -171,7 +172,7 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 - Finalement on a créé deux interface BillRepository et ProductItem utilisées pour accéder à  donner dans ce propre bdd en utilisant la notation @FeignClient . alors  open Feign il va communiquer automatiquement  avec le service d'enregistrement et  il va récupérer add ip et le porte des micro service et après envoyer une requête ver le bon  service.
 
 
-# parie de kafka:
+# partie de kafka:
  
 - Enfin on a créé un service avec kafka qui offre des brokers (un cluster des brokers) qui sont utilisés pour échanger des msg entre des applications distribuées.et qui permet de stocker les flux d'enregistrement de manière durable et tolérante aux pannes (si le sys de 
    Le stockage de kafka n' est pas suffisant il peut utiliser des connecteurs qui lui permet d'utiliser un autre système de stockage comme mongoDB ).
