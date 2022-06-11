@@ -57,7 +57,7 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 - Dans une architecture basée sur le micro service on a besoin de créer les micro service métier (Customer-Service,Inventory-Service,Billing-Service , Eureka Discovery Service,Spring Cloud Gateway ) en utilisant différentes technologies. Et pour fonctionner tous les micro services dans une seule application on a besoin d'utiliser un framework,et parmi c'est framework on a un spring cloud qui permet de faire l'orchestration de services.
 - les micro service technique qui sont fait par spring cloud :
      - le service de regisrement 
-     - le service  proxy(gatewey)
+     - le service  proxy(gateway)
      - le service  configuration
  - Tout les req http client passe par gateway et une fois ce service connu le nom de micro service il contact le service d'enregistrement pour récupérer add ip et le port où se trouve le micro service concerné par la req et s il ya plusieur instante de même micro il utilise le principe de équilibrage de charge pour choisir l'instance le moins chargé et après acheminé la req vers le bon micro service qui faire le traitement et retourne  le résultat .
  - Et pour mettre une place un service gateway dans un architecture micro service      Spring cloud il offre de solution :
@@ -84,10 +84,43 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
  ![image](https://user-images.githubusercontent.com/102295113/173161257-e3ed9c76-2122-433f-af09-ffd36e6d03d2.png)
  ![image](https://user-images.githubusercontent.com/102295113/173161424-4cf885dd-de05-4f70-9341-8c320d52dd88.png)
 
-- On commence par créer une classe customer qui va mettre dans le package entities   se classe définie par un id ,nom,et email.et pour que ca soit une entité JPA en     ajoute la notation @Entity 
+- On commence par créer une classe customer qui va mettre dans le package entities   se classe définie par un id , nom , et email. Et pour que ca soit une entité JPA en     ajoute la notation @Entity 
 - Puis creer interface JPA repository basée sur spring data qui appeler               CustomerRepository
-- Et finalement en insère quelque données dans la base de données au démarrage pour   tester .
-- Et pour tester ce micro service on a besoin de spécifier le port et le nom de       micro service et le nom de base de données  et pour le moment on va désactiver le   discovery c.a.d ce micro service ne peut pas enregistrer dans le service           d’enregistrement au démarrage .
+- Finalement en insère quelque données dans la base de données au démarrage pour   tester .
+- Et pour tester ce micro service on a besoin de spécifier le port(8081),le nom de micro service(customer-service),le nom de base de données (customer-db) et pour le moment on va désactiver le  discovery c.a.d ce micro service ne peut pas enregistrer dans le service d’enregistrement au démarrage .
+
+![image](https://user-images.githubusercontent.com/102295113/173163924-2b4b64b9-5901-4a1a-96ff-5fc6aab91f6f.png)
+
+![image](https://user-images.githubusercontent.com/102295113/173163944-2fa56973-9902-47ff-900a-0f0bf1f9817f.png)
+
+- Pour tester Actuator qui  est un service qui permet de donnees beaucoupe  de données par ex état de service : 
+![image](https://user-images.githubusercontent.com/102295113/173164322-44939fe1-25f1-4285-b76b-ccfb37553551.png)
+![image](https://user-images.githubusercontent.com/102295113/173164342-29ca982e-943f-4dab-8a5f-2a38fcf8626e.png)
+
+- Pour consulter la base de données: 
+
+![image](https://user-images.githubusercontent.com/102295113/173164647-c2ced424-794e-4d47-bfe7-cd92a2a97495.png)
+
+![image](https://user-images.githubusercontent.com/102295113/173164705-2ef8fe20-50df-44c9-b459-b1d607778c46.png)
+
+## 2-Inventory Service:
+- De même manière on a créé un classe Product  qui permet de gérer les produits et   définie par une id , nom , prix et la quantité .
+
+![image](https://user-images.githubusercontent.com/102295113/173165669-12eb956e-e83a-4eae-8997-122d9f8a4e39.png)
+
+![image](https://user-images.githubusercontent.com/102295113/173165684-1edb6cd4-8fb9-4bd7-9297-beab4b71b43f.png)
+
+- Pour consulter la base de données: 
+
+![image](https://user-images.githubusercontent.com/102295113/173165747-2371b7f7-953c-4753-bd8d-e2dbbea9fd8f.png)
+
+
+![image](https://user-images.githubusercontent.com/102295113/173165765-65ff5a57-ae01-45f0-bd95-c9d1076197b4.png)
+
+
+## 3-Spring cloud Gateway 
+
+
 
  
  
