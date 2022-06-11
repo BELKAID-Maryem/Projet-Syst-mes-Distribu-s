@@ -203,6 +203,11 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 
 ![image](https://user-images.githubusercontent.com/102295113/173174060-542499cb-bbf8-422e-aac5-3ab1766a731d.png)
 
+- Puis on a crée un Micro-service Spring Boot qui permet de consommer les messages du Topic « FACTURATION » et de les enregistrer dans sa propre base de données:
+
+![image](https://user-images.githubusercontent.com/102295113/173183795-eef21b2b-e4c6-4fdb-9a62-6a87c2420240.png)
+
+
 
 
               
