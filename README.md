@@ -147,6 +147,10 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 
 -Pour tester:
 
+![image](https://user-images.githubusercontent.com/102295113/173181661-c2c5636b-aa66-4014-a6e3-41be0f9cb331.png)
+
+![image](https://user-images.githubusercontent.com/102295113/173181684-bb372d74-e254-40c1-a359-ea25b382b746.png)
+
 
 - un projet eureka discovery et ajouter le dépendance eureka server et pour activer on ajoute la notation @EnableEurekaServer  et dans le fichier de configuration on ajoute le port et deux propriété (false pour que ce service ne pas enregistrer dans eureka service lorsque démarrer  .
 - Eureka service  fournit par Netflix qui sont rôle est chaque micro service qui démarre il va enregistrer  dans le service d'enregistrement dans un table qui contient le nom de micro add IP et la port
