@@ -183,7 +183,9 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 - Puis on a créer Deux classe : Customer et Product qui contient que les attribut d un client et d’un produit mais c' est pas une entité jpa c.a.d n' est pas géré dans la base de données( et pour ca en utilise la notation@Transient)
 - Finalement on a créé deux interface BillRepository et ProductItem utilisées pour accéder à  donner dans ce propre bdd en utilisant la notation @FeignClient . alors  open Feign il va communiquer automatiquement  avec le service d'enregistrement et  il va récupérer add ip et le porte des micro service et après envoyer une requête ver le bon  service.
 
-![image](https://user-images.githubusercontent.com/102295113/173188837-ff746f2c-b9b4-4cf0-b78d-c741a66dd360.png)
+
+![image](https://user-images.githubusercontent.com/102295113/173188954-ccae91db-11ea-4d8c-98a6-d57755f2ff7a.png)
+
 
 
 ![image](https://user-images.githubusercontent.com/102295113/173184721-98336b08-d980-4581-bbb1-23ae48fa44f9.png)
