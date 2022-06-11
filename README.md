@@ -118,7 +118,62 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
 ![image](https://user-images.githubusercontent.com/102295113/173165765-65ff5a57-ae01-45f0-bd95-c9d1076197b4.png)
 
 
-## 3-Spring cloud Gateway 
+## 3-Spring cloud Gateway
+-   il y a deux façon pour configurer le  spring cloud gateway :
+  ## Configuration statique
+
+-  Dans ce partie on a juste besoin de configurer en utilisant deux fichier de configuration :
+        -    application.properties  :dans ce fichier de configuration en spécifiant le port et le nom de gateway .
+        -    aplication.yml ce fichier contient tout ce qui concerne la configuration du route ( permet de contacter les micro service customer et inventory avec le serveur gateway).
+       
+- Et voila le teste :
+    - customer service :
+
+![image](https://user-images.githubusercontent.com/102295113/173169795-4b5ac03e-28b5-4ffc-afe0-37d4bc5c2f8e.png)
+
+
+    - inventory service : 
+    
+    ![image](https://user-images.githubusercontent.com/102295113/173169782-fe4e1703-3676-464c-a6bd-b0a38b90978c.png)
+   
+- En peut aussi faire une configuration java en utilisant un Bean de type RouteLocator  qui utiliser un objet de type RouteLocatoBuilder  en paramètre qui utiliser pour configurer les routes .
+
+- ce travaile est utiliser seulement si on utilisez des service dans  add est fix
+
+# Configuration dynamique
+
+- Dans ce configuration on a creer un methode Bean qui s'appel DiscovryClientRouteDefinitionLocator qui reçoit  deux parametre de type ReactiveDiscoveryClient et DiscoveryLocatorProperties 
+-A chaque fois le gateway reçoit une requête regarde dans l' url de la requête et trouve le nom de micro service et envoie la requête vers le bon micro service . .
+
+-Pour tester:
+
+
+- un projet eureka discovery et ajouter le dépendance eureka server et pour activer on ajoute la notation @EnableEurekaServer  et dans le fichier de configuration on ajoute le port et deux propriété (false pour que ce service ne pas enregistrer dans eureka service lorsque démarrer  .
+- Eureka service  fournit par Netflix qui sont rôle est chaque micro service qui démarre il va enregistrer  dans le service d'enregistrement dans un table qui contient le nom de micro add IP et la port
+- et pour consulter ce server :
+
+
+- Pour voir le micro service qui demarrer en euraka server en mette true au lieu de false de le fichier de configuration de customer et invotory et gateway server 
+
+![image](https://user-images.githubusercontent.com/102295113/173172218-077ea351-cfef-4b18-96e4-477b1e9f321c.png)
+
+
+
+
+
+
+
+
+
+
+
+   
+
+    
+
+    
+
+
 
 
 
