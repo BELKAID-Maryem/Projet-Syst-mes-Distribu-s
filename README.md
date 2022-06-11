@@ -55,11 +55,19 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
   ## Partie1: Micro service
   
 - Dans une architecture basée sur le micro service on a besoin de créer les micro service métier (Customer-Service,Inventory-Service,Billing-Service , Eureka Discovery Service,Spring Cloud Gateway ) en utilisant différentes technologies. Et pour fonctionner tous les micro services dans une seule application on a besoin d'utiliser un framework,et parmi c'est framework on a un spring cloud qui permet de faire l'orchestration de services.
+
+![image](https://user-images.githubusercontent.com/102295113/173184648-a20f4822-a815-4796-ba8a-f21419a8549e.png)
+
+
 - les micro service technique qui sont fait par spring cloud :
      - le service de regisrement 
      - le service  proxy(gateway)
      - le service  configuration
  - Tout les req http client passe par gateway et une fois ce service connu le nom de micro service il contact le service d'enregistrement pour récupérer add ip et le port où se trouve le micro service concerné par la req et s il ya plusieur instante de même micro il utilise le principe de équilibrage de charge pour choisir l'instance le moins chargé et après acheminé la req vers le bon micro service qui faire le traitement et retourne  le résultat .
+ 
+ ![image](https://user-images.githubusercontent.com/102295113/173184385-bc4facaf-6e76-467f-b593-d6b52b914f76.png)
+
+ 
  - Et pour mettre une place un service gateway dans un architecture micro service      Spring cloud il offre de solution :
        - Zuul : est un proxy fourni par Netflix qui basée sur le model  Multi                Threads avec des entre sortie Bloquantes.
        - Spring Cloud Gateway :  est un proxy basée sur le model Single Threads              avec des entre sortie  non bloquantes.
@@ -174,6 +182,8 @@ Danc ce projet on utilise que l'approche microservices pour creer notre applicat
      - Table productItem c’est la liste de produit de la facture.
 - Puis on a créer Deux classe : Customer et Product qui contient que les attribut d un client et d’un produit mais c' est pas une entité jpa c.a.d n' est pas géré dans la base de données( et pour ca en utilise la notation@Transient)
 - Finalement on a créé deux interface BillRepository et ProductItem utilisées pour accéder à  donner dans ce propre bdd en utilisant la notation @FeignClient . alors  open Feign il va communiquer automatiquement  avec le service d'enregistrement et  il va récupérer add ip et le porte des micro service et après envoyer une requête ver le bon  service.
+
+![image](https://user-images.githubusercontent.com/102295113/173184721-98336b08-d980-4581-bbb1-23ae48fa44f9.png)
 
 
 # partie de kafka:
